@@ -1,0 +1,142 @@
+object Form1: TForm1
+  Left = 248
+  Height = 512
+  Top = 150
+  Width = 889
+  BorderStyle = bsDialog
+  Caption = 'синтез 2D-изображения по точечным источникам волн (Ионисян А.С.)'
+  ClientHeight = 512
+  ClientWidth = 889
+  OnCreate = FormCreate
+  LCLVersion = '1.8.2.0'
+  object Bevel1: TBevel
+    Left = 0
+    Height = 512
+    Top = 0
+    Width = 512
+  end
+  object PBox: TPaintBox
+    Left = 0
+    Height = 512
+    Top = 0
+    Width = 512
+  end
+  object Label1: TLabel
+    Left = 520
+    Height = 23
+    Top = 8
+    Width = 187
+    Caption = 'Число источников волн'
+    ParentColor = False
+  end
+  object Edit_Waves_N: TEdit
+    Left = 520
+    Height = 35
+    Top = 32
+    Width = 160
+    TabOrder = 0
+    Text = '16'
+  end
+  object SG_waves: TStringGrid
+    Left = 520
+    Height = 368
+    Top = 72
+    Width = 368
+    ColCount = 6
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+    RowCount = 17
+    TabOrder = 1
+    ColWidths = (
+      28
+      64
+      64
+      64
+      64
+      64
+    )
+  end
+  object BTN_waves_N: TButton
+    Left = 685
+    Height = 35
+    Top = 32
+    Width = 51
+    Caption = 'OK'
+    OnClick = BTN_waves_NClick
+    TabOrder = 2
+  end
+  object Btn_redraw: TButton
+    Left = 672
+    Height = 25
+    Top = 480
+    Width = 216
+    Caption = 'Перерисовать (сброс t)'
+    OnClick = Btn_redrawClick
+    TabOrder = 3
+  end
+  object BTN_gen_waves_rnd: TButton
+    Left = 520
+    Height = 25
+    Top = 448
+    Width = 216
+    Caption = 'Сгенерировать случайные'
+    OnClick = BTN_gen_waves_rndClick
+    TabOrder = 4
+  end
+  object BTN_gen_waves_table: TButton
+    Left = 520
+    Height = 25
+    Top = 480
+    Width = 144
+    Caption = 'Взять из таблицы'
+    OnClick = BTN_gen_waves_tableClick
+    TabOrder = 5
+  end
+  object BTN_gen_img_amp: TButton
+    Left = 744
+    Height = 25
+    Top = 448
+    Width = 144
+    Caption = 'Расчет'
+    OnClick = BTN_gen_img_ampClick
+    TabOrder = 6
+  end
+  object CB_timer: TCheckBox
+    Left = 752
+    Height = 27
+    Top = 8
+    Width = 84
+    Caption = 'Таймер'
+    OnClick = CB_timerClick
+    TabOrder = 7
+  end
+  object Edit_t: TEdit
+    Left = 776
+    Height = 35
+    Top = 32
+    Width = 64
+    TabOrder = 8
+    Text = '0'
+  end
+  object BTN_t_set: TButton
+    Left = 848
+    Height = 35
+    Top = 32
+    Width = 35
+    Caption = 'OK'
+    OnClick = BTN_t_setClick
+    TabOrder = 9
+  end
+  object Label2: TLabel
+    Left = 752
+    Height = 23
+    Top = 40
+    Width = 15
+    Caption = 't='
+    ParentColor = False
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    left = 704
+  end
+end
