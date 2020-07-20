@@ -2,13 +2,13 @@ object Form1: TForm1
   Left = 248
   Height = 512
   Top = 150
-  Width = 889
+  Width = 954
   BorderStyle = bsDialog
   Caption = 'синтез 2D-изображения по точечным источникам волн (Ионисян А.С.)'
   ClientHeight = 512
-  ClientWidth = 889
+  ClientWidth = 954
   OnCreate = FormCreate
-  LCLVersion = '1.8.2.0'
+  LCLVersion = '2.0.6.0'
   object Bevel1: TBevel
     Left = 0
     Height = 512
@@ -23,26 +23,26 @@ object Form1: TForm1
   end
   object Label1: TLabel
     Left = 520
-    Height = 23
+    Height = 16
     Top = 8
-    Width = 187
-    Caption = 'Число источников волн'
+    Width = 37
+    Caption = 'waves'
     ParentColor = False
   end
   object Edit_Waves_N: TEdit
-    Left = 520
-    Height = 35
-    Top = 32
-    Width = 160
+    Left = 560
+    Height = 28
+    Top = 0
+    Width = 48
     TabOrder = 0
-    Text = '16'
+    Text = '2'
   end
   object SG_waves: TStringGrid
     Left = 520
     Height = 368
     Top = 72
-    Width = 368
-    ColCount = 6
+    Width = 430
+    ColCount = 7
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
     RowCount = 17
     TabOrder = 1
@@ -53,19 +53,20 @@ object Form1: TForm1
       64
       64
       64
+      64
     )
   end
   object BTN_waves_N: TButton
-    Left = 685
-    Height = 35
-    Top = 32
-    Width = 51
+    Left = 608
+    Height = 28
+    Top = 0
+    Width = 35
     Caption = 'OK'
     OnClick = BTN_waves_NClick
     TabOrder = 2
   end
   object Btn_redraw: TButton
-    Left = 672
+    Left = 520
     Height = 25
     Top = 480
     Width = 216
@@ -82,61 +83,163 @@ object Form1: TForm1
     OnClick = BTN_gen_waves_rndClick
     TabOrder = 4
   end
-  object BTN_gen_waves_table: TButton
-    Left = 520
-    Height = 25
-    Top = 480
-    Width = 144
-    Caption = 'Взять из таблицы'
-    OnClick = BTN_gen_waves_tableClick
-    TabOrder = 5
-  end
   object BTN_gen_img_amp: TButton
-    Left = 744
+    Left = 740
     Height = 25
     Top = 448
-    Width = 144
+    Width = 65
     Caption = 'Расчет'
     OnClick = BTN_gen_img_ampClick
-    TabOrder = 6
+    TabOrder = 5
   end
   object CB_timer: TCheckBox
-    Left = 752
-    Height = 27
-    Top = 8
-    Width = 84
+    Left = 808
+    Height = 23
+    Top = 448
+    Width = 73
     Caption = 'Таймер'
     OnClick = CB_timerClick
-    TabOrder = 7
+    TabOrder = 6
   end
   object Edit_t: TEdit
-    Left = 776
-    Height = 35
-    Top = 32
+    Left = 884
+    Height = 28
+    Top = 0
     Width = 64
-    TabOrder = 8
+    TabOrder = 7
     Text = '0'
   end
-  object BTN_t_set: TButton
-    Left = 848
-    Height = 35
-    Top = 32
-    Width = 35
-    Caption = 'OK'
-    OnClick = BTN_t_setClick
-    TabOrder = 9
-  end
   object Label2: TLabel
-    Left = 752
-    Height = 23
-    Top = 40
-    Width = 15
+    Left = 868
+    Height = 16
+    Top = 8
+    Width = 13
     Caption = 't='
     ParentColor = False
   end
+  object Edit_nx: TEdit
+    Left = 808
+    Height = 28
+    Top = 0
+    Width = 48
+    TabOrder = 8
+    Text = '64'
+  end
+  object Edit_ny: TEdit
+    Left = 808
+    Height = 28
+    Top = 40
+    Width = 48
+    TabOrder = 9
+    Text = '64'
+  end
+  object Label3: TLabel
+    Left = 784
+    Height = 16
+    Top = 8
+    Width = 23
+    Caption = 'nx='
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 784
+    Height = 16
+    Top = 48
+    Width = 23
+    Caption = 'ny='
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 864
+    Height = 16
+    Top = 48
+    Width = 21
+    Caption = 'dt='
+    ParentColor = False
+  end
+  object Edit_dt: TEdit
+    Left = 884
+    Height = 28
+    Top = 40
+    Width = 64
+    TabOrder = 10
+    Text = '0'
+  end
+  object Label6: TLabel
+    Left = 520
+    Height = 16
+    Top = 48
+    Width = 36
+    Caption = 'k_dist'
+    ParentColor = False
+  end
+  object Edit_k_dist: TEdit
+    Left = 560
+    Height = 28
+    Top = 40
+    Width = 48
+    TabOrder = 11
+    Text = '2'
+  end
+  object Edit_sx: TEdit
+    Left = 696
+    Height = 28
+    Top = 0
+    Width = 48
+    TabOrder = 12
+    Text = '0'
+  end
+  object Edit_sy: TEdit
+    Left = 696
+    Height = 28
+    Top = 40
+    Width = 48
+    TabOrder = 13
+    Text = '0'
+  end
+  object Label7: TLabel
+    Left = 672
+    Height = 16
+    Top = 8
+    Width = 21
+    Caption = 'sx='
+    ParentColor = False
+  end
+  object Label8: TLabel
+    Left = 672
+    Height = 16
+    Top = 48
+    Width = 21
+    Caption = 'sy='
+    ParentColor = False
+  end
+  object UpDown_sx: TUpDown
+    Left = 744
+    Height = 31
+    Top = 0
+    Width = 17
+    Max = 1000
+    Min = -1000
+    OnClick = UpDown_sxClick
+    Position = 0
+    TabOrder = 14
+  end
+  object UpDown_sy: TUpDown
+    Left = 744
+    Height = 31
+    Top = 40
+    Width = 17
+    Max = 1000
+    Min = -1000
+    OnClick = UpDown_syClick
+    Position = 0
+    TabOrder = 15
+  end
   object Timer1: TTimer
     Enabled = False
+    Interval = 100
     OnTimer = Timer1Timer
-    left = 704
+    left = 912
+    top = 448
   end
 end
