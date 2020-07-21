@@ -19,6 +19,7 @@ type
     BTN_gen_waves_rnd: TButton;
     BTN_gen_img_amp: TButton;
     CB_timer: TCheckBox;
+    CB_falling: TCheckBox;
     Edit_nx: TEdit;
     Edit_sx: TEdit;
     Edit_ny: TEdit;
@@ -79,6 +80,7 @@ var
   waves: array[1..10000] of t_wave;
   t,dt:real;
   k_dist:real;
+  falling_flag:boolean;
 
 implementation
 
@@ -90,7 +92,7 @@ begin
 end;
 
 procedure gen_img_amp;
-var i,x,y:integer; A_tmp,dist:real;
+var i,x,y:integer; A_tmp,dist,dist2:real;
 begin
   for y:=0 to amp_height-1 do
   for x:=0 to amp_width-1 do
@@ -103,7 +105,8 @@ begin
     begin
       dist:=sqrt(sqr(x-waves[i].x-sx)+sqr(y-waves[i].y-sy))*k_dist;
       A_tmp:=wave_amp(waves[i].f,waves[i].amp,waves[i].phi,dist+t*waves[i].v);
-      IMG_amp[x,y]:=IMG_amp[x,y]+A_tmp;
+      if falling_flag and (dist>1) then IMG_amp[x,y]:=IMG_amp[x,y]+A_tmp/(dist*dist)
+                                   else IMG_amp[x,y]:=IMG_amp[x,y]+A_tmp;
     end;
   end;
 end;
@@ -112,6 +115,8 @@ end;
 procedure TForm1.get_params;
 var i: integer;
 begin
+  falling_flag:=CB_falling.Checked;
+
   sx:=StrToFloat(Edit_sx.text);
   sy:=StrToFloat(Edit_sy.text);
 
